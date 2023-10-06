@@ -14,11 +14,11 @@ class Cell(Enum):
     ZERO = 2
 
 
-    class Player:
+class Player:
     def __init__(self, cell_type):
         self.cell_type = cell_type
 
-        
+
 class GameManager:
     """
     Starts all processes.
