@@ -16,17 +16,13 @@ class Cell(Enum):
 
 class Player:
     def __init__(self, player,cell_type):
-
         self.cell_type = Cell(Enum)
         self.player = player
 
     def get_icon (self):
-        return 
+        return  player.cell_type
 
-class GameManager:
-    """
-    Starts all processes.
-    """
+class Game:
     def __init__(self, player1: Player, player2: Player):
         self.player1 = Player()
         self.player1 = Player()
