@@ -3,9 +3,9 @@ from enum import Enum
 
 class Board:
     def __init__(self):
-        self.height = 3
-        self.width = 3
-        self.cells = [[Cell.VOID] * self.width for i in range(self.height)]
+        self.cells = [[Cell.VOID,Cell.VOID, Cell.VOID],
+                      [Cell.VOID,Cell.VOID, Cell.VOID],
+                      [Cell.VOID,Cell.VOID, Cell.VOID]]
 
 
 class Cell(Enum):
@@ -15,15 +15,22 @@ class Cell(Enum):
 
 
 class Player:
-    def __init__(self, cell_type):
-        self.cell_type = cell_type
+    def __init__(self, player,cell_type):
 
+        self.cell_type = Cell(Enum)
+        self.player = player
+
+    def get_icon (self):
+        return 
 
 class GameManager:
     """
     Starts all processes.
     """
     def __init__(self, player1: Player, player2: Player):
-        self._players = [player1, player2]  # почему приватный ??
+        self.player1 = Player()
+        self.player1 = Player()
+
         self.current_player = 0
         self.board = Board()
+
