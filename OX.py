@@ -5,17 +5,19 @@ class Board:
         self.cells = [[None, None, None],
              [None, None, None],
              [None, None, None]]
-    def insert (self, x, y, player):
+    def insert (self, player,x, y):
         if cells[x, y] == None:
             cells[x,y] = player  
+
 
 class Player:
     def turn(self, board, x, y):
         board.insert(x,y)
+
 
 player1 = Player()
 player2 = Player()
 board = Board()
 
 
-print(board.cells)
+print()
