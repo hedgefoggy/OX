@@ -4,7 +4,7 @@ class Board:
              ["", "", ""]]
 
     def print_board(self):
-            for cell in board.cells:
+            for cell in board:
                 print(cell)
 
     def insert (self, player,x, y):
@@ -18,24 +18,35 @@ class Board:
 
 
 class Player:
-
     badge = ""
 
     def turn(self, board, x, y):
         board.insert(self,x,y)
 
 
+def check_winner():
+    current_player = Player.badge
+    if  board.cells[0][0] == current_player and board.cells[0][1] == current_player and board.cells[0][2] == current_player or \
+        board.cells[0][0] == current_player and board.cells[1][1] == current_player and board.cells[2][2] == current_player or \
+        board.cells[1][0] == current_player and board.cells[1][1] == current_player and board.cells[1][2] == current_player or \
+        board.cells[2][0] == current_player and board.cells[2][1] == current_player and board.cells[2][2] == current_player or \
+        board.cells[0][1] == current_player and board.cells[1][1] == current_player and board.cells[2][1] == current_player or \
+        board.cells[0][2] == current_player and board.cells[1][2] == current_player and board.cells[2][2] == current_player or \
+        board.cells[0][0] == current_player and board.cells[1][0] == current_player and board.cells[2][0] == current_player or \
+        board.cells[0][2] == current_player and board.cells[1][1] == current_player and board.cells[2][0] == current_player:
+            print("Winner is: ", current_player)
+
 player1 = Player()
 player2 = Player()
 board = Board()
 
 player1.badge = "X"
-player1.turn(board,1,1)
+player1.turn(board,0,0)
 
-player2.badge = "O"
-player2.turn(board,2,2)
+player2.badge = "X"
+player2.turn(board,0,1)
 
 player1.badge = "X"
-player1.turn(board,1,1)
+player1.turn(board,0,2)
 
 board.print_board()
