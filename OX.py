@@ -1,14 +1,20 @@
-from enum import Enum
 class Board:
-    cells = [[None, None, None],
-             [None, None, None],
-             [None, None, None]]
+    cells = [["", "", ""],
+             ["", "", ""],
+             ["", "", ""]]
+
+    def print_board(self):
+            for cell in board.cells:
+                print(cell)
 
     def insert (self, player,x, y):
-        if self.cells[x][y] != None:
-            print("Cell is occupied")
+        self.print_board()
+        print()
+        if self.cells[x][y] != "":
+            print("Cell is occupied!")
+            print()
         else:
-            self.cells[x][y] = player
+            self.cells[x][y] = player.badge
 
 
 class Player:
@@ -23,7 +29,13 @@ player1 = Player()
 player2 = Player()
 board = Board()
 
+player1.badge = "X"
 player1.turn(board,1,1)
 
+player2.badge = "O"
+player2.turn(board,2,2)
 
-print(board.cells)
+player1.badge = "X"
+player1.turn(board,1,1)
+
+board.print_board()
