@@ -31,11 +31,38 @@ board = Board()
 player1.badge = 'X'
 player2.badge = 'O'
 
-while True:
-    player1.turn(board, int(input("Select cell x: \n")), int(input("Select cell y: \n")))
-    player2.turn(board, int(input("Select cell x: \n")), int(input("Select cell y: \n")))
-
 board.print_board()
+while True:
+    player1.turn(board, int(input("Player 1 select cell x: ")), int(input("select cell y: ")))
+    board.print_board()
+    player2.turn(board, int(input("Player 2 select cell x: ")), int(input("select cell y: ")))
+
+    if (
+            Board.cells[0][0] == player1.badge and Board.cells[0][1] == player1.badge and Board.cells[0][2] == player1.badge or \
+            Board.cells[0][0] == player1.badge and Board.cells[1][1] == player1.badge and Board.cells[2][2] == player1.badge or \
+            Board.cells[1][0] == player1.badge and Board.cells[1][1] == player1.badge and Board.cells[1][2] == player1.badge or \
+            Board.cells[2][0] == player1.badge and Board.cells[2][1] == player1.badge and Board.cells[2][2] == player1.badge or \
+            Board.cells[0][1] == player1.badge and Board.cells[1][1] == player1.badge and Board.cells[2][1] == player1.badge or \
+            Board.cells[0][2] == player1.badge and Board.cells[1][2] == player1.badge and Board.cells[2][2] == player1.badge or \
+            Board.cells[0][0] == player1.badge and Board.cells[1][0] == player1.badge and Board.cells[2][0] == player1.badge or \
+            Board.cells[0][2] == player1.badge and Board.cells[1][1] == player1.badge and Board.cells[2][0] == player1.badge):
+        print("Winner is: ", player1.badge)
+        break
+    elif(
+            Board.cells[0][0] == player2.badge and Board.cells[0][1] == player2.badge and Board.cells[0][2] == player2.badge or \
+            Board.cells[0][0] == player2.badge and Board.cells[1][1] == player2.badge and Board.cells[2][2] == player2.badge or \
+            Board.cells[1][0] == player2.badge and Board.cells[1][1] == player2.badge and Board.cells[1][2] == player2.badge or \
+            Board.cells[2][0] == player2.badge and Board.cells[2][1] == player2.badge and Board.cells[2][2] == player2.badge or \
+            Board.cells[0][1] == player2.badge and Board.cells[1][1] == player2.badge and Board.cells[2][1] == player2.badge or \
+            Board.cells[0][2] == player2.badge and Board.cells[1][2] == player2.badge and Board.cells[2][2] == player2.badge or \
+            Board.cells[0][0] == player2.badge and Board.cells[1][0] == player2.badge and Board.cells[2][0] == player2.badge or \
+            Board.cells[0][2] == player2.badge and Board.cells[1][1] == player2.badge and Board.cells[2][0] == player2.badge):
+        print("Winner is: ", player2.badge)
+    else:
+        print("Dead heat!")
+        break
+
+
 '''
 player1.turn(board,1,1)
 player2.turn(board,0,0)
@@ -51,14 +78,14 @@ player1.turn(board,2,2)
 '''
     def check_turn(self, player):
         if (
-            self.cells[0][0] == player.badge and self.cells[0][1] == player.badge and self.cells[0][2] == player.badge or \
-            self.cells[0][0] == player.badge and self.cells[1][1] == player.badge and self.cells[2][2] == player.badge or \
-            self.cells[1][0] == player.badge and self.cells[1][1] == player.badge and self.cells[1][2] == player.badge or \
-            self.cells[2][0] == player.badge and self.cells[2][1] == player.badge and self.cells[2][2] == player.badge or \
-            self.cells[0][1] == player.badge and self.cells[1][1] == player.badge and self.cells[2][1] == player.badge or \
-            self.cells[0][2] == player.badge and self.cells[1][2] == player.badge and self.cells[2][2] == player.badge or \
-            self.cells[0][0] == player.badge and self.cells[1][0] == player.badge and self.cells[2][0] == player.badge or \
-            self.cells[0][2] == player.badge and self.cells[1][1] == player.badge and self.cells[2][0] == player.badge):
+            Board.cells[0][0] == player.badge and Board.cells[0][1] == player.badge and Board.cells[0][2] == player.badge or \
+            Board.cells[0][0] == player.badge and Board.cells[1][1] == player.badge and Board.cells[2][2] == player.badge or \
+            Board.cells[1][0] == player.badge and Board.cells[1][1] == player.badge and Board.cells[1][2] == player.badge or \
+            Board.cells[2][0] == player.badge and Board.cells[2][1] == player.badge and Board.cells[2][2] == player.badge or \
+            Board.cells[0][1] == player.badge and Board.cells[1][1] == player.badge and Board.cells[2][1] == player.badge or \
+            Board.cells[0][2] == player.badge and Board.cells[1][2] == player.badge and Board.cells[2][2] == player.badge or \
+            Board.cells[0][0] == player.badge and Board.cells[1][0] == player.badge and Board.cells[2][0] == player.badge or \
+            Board.cells[0][2] == player.badge and Board.cells[1][1] == player.badge and Board.cells[2][0] == player.badge):
             print("Winner is: ", player.badge)
         else:
             print("Dead heat!")
