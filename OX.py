@@ -31,18 +31,23 @@ board = Board()
 player1.badge = 'X'
 player2.badge = 'O'
 
+while True:
+    player1.turn(board, int(input("Select cell x: \n")), int(input("Select cell y: \n")))
+    player2.turn(board, int(input("Select cell x: \n")), int(input("Select cell y: \n")))
+
+board.print_board()
+'''
 player1.turn(board,1,1)
 player2.turn(board,0,0)
 player1.turn(board,2,0)
 player2.turn(board,0,2)
 player1.turn(board,0,1)
 player2.turn(board,2,1)
-player1.turn(board, 1,2)
+player1.turn(board,1,2)
 player2.turn(board,1,0)
 player1.turn(board,2,2)
+'''
 
-
-board.print_board()
 '''
     def check_turn(self, player):
         if (
