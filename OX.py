@@ -4,7 +4,8 @@ class Board:
              ["", "", ""]]
 
     def print_board(self):
-        for cell in board.cells:
+        print(id(self))
+        for cell in self.cells:
             print(cell)
 
     def insert(self, player, x, y):
@@ -61,45 +62,3 @@ while True:
     else:
         print("Dead heat!")
         break
-
-
-'''
-player1.turn(board,1,1)
-player2.turn(board,0,0)
-player1.turn(board,2,0)
-player2.turn(board,0,2)
-player1.turn(board,0,1)
-player2.turn(board,2,1)
-player1.turn(board,1,2)
-player2.turn(board,1,0)
-player1.turn(board,2,2)
-'''
-
-'''
-    def check_turn(self, player):
-        if (
-            Board.cells[0][0] == player.badge and Board.cells[0][1] == player.badge and Board.cells[0][2] == player.badge or \
-            Board.cells[0][0] == player.badge and Board.cells[1][1] == player.badge and Board.cells[2][2] == player.badge or \
-            Board.cells[1][0] == player.badge and Board.cells[1][1] == player.badge and Board.cells[1][2] == player.badge or \
-            Board.cells[2][0] == player.badge and Board.cells[2][1] == player.badge and Board.cells[2][2] == player.badge or \
-            Board.cells[0][1] == player.badge and Board.cells[1][1] == player.badge and Board.cells[2][1] == player.badge or \
-            Board.cells[0][2] == player.badge and Board.cells[1][2] == player.badge and Board.cells[2][2] == player.badge or \
-            Board.cells[0][0] == player.badge and Board.cells[1][0] == player.badge and Board.cells[2][0] == player.badge or \
-            Board.cells[0][2] == player.badge and Board.cells[1][1] == player.badge and Board.cells[2][0] == player.badge):
-            print("Winner is: ", player.badge)
-        else:
-            print("Dead heat!")
-'''
-
-'''
-while game_over == False:
-    board.print_board()
-
-    player1.badge = 'X'
-    player1.turn(board, int(input("Select cell x: \n")), int(input("Select cell y: \n")))
-
-    if player.badge:
-        game_over = True
-    else:
-        game_over = False
-'''
